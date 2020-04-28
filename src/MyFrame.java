@@ -117,7 +117,7 @@ public class MyFrame extends JFrame  implements ActionListener {
     }
 
     public MyFrame() {
-        super("Hello World");
+        super("Big Number Calculator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setSize(340, 410);
