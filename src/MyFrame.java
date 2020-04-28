@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class MyFrame extends JFrame  implements ActionListener {
 
-    JButton bClose, bNegate, bDot, bAdd, bSub, bMul, bDiv;
+    JButton bClose, bNegate, bDot, bAdd, bSub, bMul, bDiv, bEq, bDel, bC, bCE;
     JButton bOne, bTwo, bThree, bFour, bFive, bSix, bSeven, bEight, bNine, bZero;
     JTextField tText;
     String endNumber = "";
@@ -94,15 +94,37 @@ public class MyFrame extends JFrame  implements ActionListener {
                 Number = " ";
                 tText.setText(Number);
             }
+            else if (source == bEq){
+                endNumber = endNumber + Number;
+                Number = " ";
+//                System.out.println(endNumber);
+                tText.setText(Number);
+            }
+            else if (source == bDel){
+                if(!Number.isEmpty())
+                Number = Number.substring(0,Number.length()-1);
+                tText.setText(Number);
+            }
+            else if (source == bC){
+                Number = " ";
+                tText.setText(Number);
+            }
+            else if (source == bCE){
+                Number = "";
+                endNumber = "";
+                tText.setText(Number);
+            }
     }
 
     public MyFrame() {
         super("Hello World");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
-        setSize(500, 500);
+        setSize(340, 410);
+        this.setResizable(false);
+
         bClose = new JButton("X");
-        bClose.setBounds(425, 10, 50, 50);
+        bClose.setBounds(260, 10, 50, 50);
         bClose.addActionListener(this);
         add(bClose);
 
@@ -186,8 +208,28 @@ public class MyFrame extends JFrame  implements ActionListener {
         bDiv.addActionListener(this);
         add(bDiv);
 
+        bDiv = new JButton("=");
+        bDiv.setBounds(200, 305, 50, 50);
+        bDiv.addActionListener(this);
+        add(bDiv);
+
+        bDel = new JButton("Del");
+        bDel.setBounds(140, 65, 50, 50);
+        bDel.addActionListener(this);
+        add(bDel);
+
+        bC = new JButton("C");
+        bC.setBounds(20, 65, 50, 50);
+        bC.addActionListener(this);
+        add(bC);
+
+        bCE = new JButton("CE");
+        bCE.setBounds(80, 65, 50, 50);
+        bCE.addActionListener(this);
+        add(bCE);
+
         tText = new JTextField("");
-        tText.setBounds(10, 10, 300, 30);
+        tText.setBounds(10, 10, 240, 30);
         add(tText);
 
 
